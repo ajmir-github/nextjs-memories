@@ -14,10 +14,11 @@ model Memory {
   tags     String[]
   location String
   caption  String
-  images   String
-  videos   String
+  images   String[]
+  videos   String[]
   // Optional
   body     String?
+  views    Int?     @default(0)
 
   // Date stamps
   createdAt DateTime  @default(now())
@@ -34,8 +35,10 @@ model User {
   email     String   @unique
   password  String
   isAdmin   Boolean  @default(false)
-  // Optional
   name      String
+  // Optional
+  profile   String?
+  views     Int?     @default(0)
   // Date stamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

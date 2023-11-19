@@ -1,11 +1,19 @@
 import { IconType } from "react-icons";
-import { FaCameraRetro } from "react-icons/fa";
+import {
+  FaCameraRetro,
+  FaRegUser,
+  FaRegEdit,
+  FaHashtag,
+  FaTag,
+  FaTags,
+  FaFilter,
+  FaSearch,
+} from "react-icons/fa";
 import { CiLogin } from "react-icons/ci";
-import { FaTag, FaTags } from "react-icons/fa";
-import { FaHashtag } from "react-icons/fa";
-import { FaRegEdit } from "react-icons/fa";
 import { TbCalendarEvent } from "react-icons/tb";
 import { FaLocationDot } from "react-icons/fa6";
+import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
+import { BiSortDown, BiSortUp } from "react-icons/bi";
 
 export enum IconSize {
   xs = 14,
@@ -31,3 +39,9 @@ export const HashTagIcon = iconWrapper(FaHashtag);
 export const EditIcon = iconWrapper(FaRegEdit);
 export const DateIcon = iconWrapper(TbCalendarEvent);
 export const LocationIcon = iconWrapper(FaLocationDot);
+export const UserIcon = iconWrapper(FaRegUser);
+export const LoadMoreIcon = iconWrapper(MdOutlineKeyboardDoubleArrowDown);
+export const SortUpIcon = iconWrapper(BiSortUp);
+export const SortDownIcon = iconWrapper(BiSortDown);
+export const FilternIcon = iconWrapper(FaFilter);
+export const SearchIcon = iconWrapper(FaSearch);

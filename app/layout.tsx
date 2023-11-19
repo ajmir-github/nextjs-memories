@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="cupcake">
       <body className={inter.className}>
-        <div className="h-screen flex flex-col justify-between p-2 md:p-4 bg-slate-200">
+        <div className="h-screen flex flex-col justify-between p-2 md:p-4 gap-2 md:gap-4 bg-slate-200">
           <Navbar />
-          <main className="flex flex-col grow overflow-y-auto p-2 md:p-4 scrollbar">
+          <main className="flex flex-col grow overflow-y-auto p-2 scrollbar">
             {children}
           </main>
           <Footer />

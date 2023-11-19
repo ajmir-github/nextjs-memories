@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer footer-center p-2 md:p-4">
+    <footer className="footer footer-center">
       <aside>
         <p>
           Copyright © 2024 - All right reserved by{" "}
