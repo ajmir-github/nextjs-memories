@@ -1,11 +1,20 @@
-import { HashTagIcon, IconSize, TagIcon } from "@/components/Icons";
+import { EditIcon, HashTagIcon, IconSize, TagIcon } from "@/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
 
 function MemoryCard({ memory }: { memory: number }) {
+  const signed = true;
   return (
     <article>
-      <div className="rounded-box border-2 shadow overflow-hidden flex flex-col gap-2">
+      <div className="rounded-box border-2 shadow overflow-hidden flex flex-col gap-2 relative">
+        {signed && (
+          <Link
+            className="absolute right-4 top-4 btn btn-sm btn-outline btn-primary"
+            href={"/edit/safdsf"}
+          >
+            <EditIcon size={IconSize.sm} /> Edit
+          </Link>
+        )}
         <Image
           className="w-full"
           src={`/images/${memory}.jpg`}
@@ -27,25 +36,25 @@ function MemoryCard({ memory }: { memory: number }) {
           <div className="flex flex-wrap gap-2">
             <Link
               href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-primary"
+              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
             >
               <HashTagIcon size={IconSize.xs} /> tags 1
             </Link>
             <Link
               href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-primary"
+              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
             >
               <HashTagIcon size={IconSize.xs} /> tags 1 tags 2
             </Link>
             <Link
               href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-primary"
+              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
             >
               <HashTagIcon size={IconSize.xs} /> tags 1 tags 3
             </Link>
             <Link
               href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-primary"
+              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
             >
               <HashTagIcon size={IconSize.xs} /> tags 1 tags 4
             </Link>
