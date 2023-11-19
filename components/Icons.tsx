@@ -4,6 +4,8 @@ import { CiLogin } from "react-icons/ci";
 import { FaTag, FaTags } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
+import { TbCalendarEvent } from "react-icons/tb";
+import { FaLocationDot } from "react-icons/fa6";
 
 export enum IconSize {
   xs = 14,
@@ -27,3 +29,5 @@ export const TagIcon = iconWrapper(FaTag);
 export const TagsIcon = iconWrapper(FaTags);
 export const HashTagIcon = iconWrapper(FaHashtag);
 export const EditIcon = iconWrapper(FaRegEdit);
+export const DateIcon = iconWrapper(TbCalendarEvent);
+export const LocationIcon = iconWrapper(FaLocationDot);

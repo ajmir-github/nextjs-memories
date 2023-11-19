@@ -1,76 +1,74 @@
-import { EditIcon, HashTagIcon, IconSize, TagIcon } from "@/components/Icons";
+import { DateIcon, IconSize, LocationIcon } from "@/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
 
-function MemoryCard({ memory }: { memory: number }) {
-  const signed = true;
+interface Memory {
+  id: string;
+  caption: string;
+}
+
+function MemoryCard({ memory }: { memory: Memory }) {
   return (
     <article>
-      <div className="rounded-box border-2 shadow overflow-hidden flex flex-col gap-2 relative">
-        {signed && (
-          <Link
-            className="absolute right-4 top-4 btn btn-sm btn-outline btn-primary"
-            href={"/edit/safdsf"}
-          >
-            <EditIcon size={IconSize.sm} /> Edit
-          </Link>
-        )}
+      <Link
+        href={`/memory/${memory.id}`}
+        className="rounded-box border-2 shadow overflow-hidden flex flex-col gap-2 relative"
+      >
         <Image
-          className="w-full"
-          src={`/images/${memory}.jpg`}
+          className="w-full aspect-video"
+          src={memory.caption}
           alt="Shoes"
           width={800}
           height={600}
         />
-        <div className="prose grid p-4 md:p-6">
-          <h2>Shoes!</h2>
-          <p>
-            {memory % 2 > 0
-              ? "asdasdasd"
-              : `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-          illum similique enim molestiae vero blanditiis autem cupiditate dicta
-          accusantium fuga aliquid, magni amet eos delectus sed at dolorem earum
-          voluptates.`}
-          </p>
-
-          <div className="flex flex-wrap gap-2">
+        <div className="absolute left-0 bottom-0 text-white w-full flex gap-2 flex-col px-4 py-2 bg-black bg-opacity-50">
+          <h2 className="text-lg ">Experincing the night life in Ayia Napa</h2>
+          <div className="flex justify-between w-full">
+            <time className="flex gap-2 items-center">
+              <DateIcon size={IconSize.sm} />
+              Mar 10, 2020
+            </time>
             <Link
-              href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
+              className="btn btn-xs btn-secondary"
+              href={`/?location=${"ayia napa"}`}
             >
-              <HashTagIcon size={IconSize.xs} /> tags 1
-            </Link>
-            <Link
-              href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
-            >
-              <HashTagIcon size={IconSize.xs} /> tags 1 tags 2
-            </Link>
-            <Link
-              href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
-            >
-              <HashTagIcon size={IconSize.xs} /> tags 1 tags 3
-            </Link>
-            <Link
-              href={`/tag=${"tag"}`}
-              className="btn btn-xs md:btn-sm btn-secondary btn-outline"
-            >
-              <HashTagIcon size={IconSize.xs} /> tags 1 tags 4
+              <LocationIcon size={IconSize.sm} />
+              Ayia Napa/ Cyprus
             </Link>
           </div>
         </div>
-      </div>
+      </Link>
     </article>
   );
 }
 
 export default function MemoriesList() {
-  const memories = [1, 2, 3, 4, 5];
+  const memories: Memory[] = [
+    {
+      id: "1",
+      caption: "/images/1.jpg",
+    },
+    {
+      id: "2",
+      caption: "/images/2.jpg",
+    },
+    {
+      id: "3",
+      caption: "/images/3.jpg",
+    },
+    {
+      id: "4",
+      caption: "/images/4.jpg",
+    },
+    {
+      id: "5",
+      caption: "/images/5.jpg",
+    },
+  ];
   return (
-    <div className="grid gap-2 md:gap-4 lg:grid-cols-2">
+    <div className="grid gap-2 md:gap-4 md:grid-cols-2 xl:grid-cols-3">
       {memories.map((memory) => (
-        <MemoryCard key={memory} memory={memory} />
+        <MemoryCard key={memory.id} memory={memory} />
       ))}
     </div>
   );

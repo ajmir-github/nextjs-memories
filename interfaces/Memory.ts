@@ -3,7 +3,9 @@ export default interface Memory {
   title: string;
   description: string;
   tags: string[];
-  images: string[];
-  createdAt: string;
   location: string;
+  caption: string;
+  images: string[];
+  videos: string[];
+  createdAt: string;
 }
