@@ -8,12 +8,12 @@ export default function MemoryFilter() {
   return (
     <div className="flex justify-between items-center flex-wrap gap-2">
       {ascending ? (
-        <button className={"btn"} onClick={toggleSort}>
+        <button className={"btn btn-sm"} onClick={toggleSort}>
           <SortDownIcon />
           <span className="hidden md:block">Newest</span>
         </button>
       ) : (
-        <button className={"btn"} onClick={toggleSort}>
+        <button className={"btn btn-sm"} onClick={toggleSort}>
           <SortUpIcon />
           <span className="hidden md:block">Oldest</span>
         </button>
@@ -21,12 +21,12 @@ export default function MemoryFilter() {
 
       <div className="join">
         <input
-          className="input join-item"
+          className="input input-sm join-item"
           placeholder="search"
           type="search"
           autoComplete="on"
         />
-        <button className="join-item btn">
+        <button className="join-item btn btn-sm">
           <SearchIcon />
           <span className="hidden md:block">Search</span>
         </button>
