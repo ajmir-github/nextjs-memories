@@ -37,6 +37,7 @@ model User {
   isAdmin   Boolean  @default(false)
   name      String
   // Optional
+  bio       String?
   profile   String?
   views     Int?     @default(0)
   // Date stamps

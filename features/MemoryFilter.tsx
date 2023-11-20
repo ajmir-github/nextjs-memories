@@ -6,31 +6,25 @@ export default function MemoryFilter() {
   const [ascending, setAscending] = useState<boolean>(true);
   const toggleSort = () => setAscending((pre) => !pre);
   return (
-    <div className="flex justify-between items-center flex-wrap gap-2">
+    <div className="flex justify-between items-center gap-2 w-full">
       {ascending ? (
-        <button className={"btn btn-sm"} onClick={toggleSort}>
+        <button className={"btn btn-sm md:btn-md"} onClick={toggleSort}>
           <SortDownIcon />
           <span className="hidden md:block">Newest</span>
         </button>
       ) : (
-        <button className={"btn btn-sm"} onClick={toggleSort}>
+        <button className={"btn btn-sm md:btn-md"} onClick={toggleSort}>
           <SortUpIcon />
           <span className="hidden md:block">Oldest</span>
         </button>
       )}
 
-      <div className="join">
-        <input
-          className="input input-sm join-item"
-          placeholder="search"
-          type="search"
-          autoComplete="on"
-        />
-        <button className="join-item btn btn-sm">
-          <SearchIcon />
-          <span className="hidden md:block">Search</span>
-        </button>
-      </div>
+      <input
+        className="input input-sm md:input-md max-w-sm grow"
+        placeholder="search"
+        type="search"
+        autoComplete="on"
+      />
     </div>
   );
 }

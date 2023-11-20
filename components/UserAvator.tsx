@@ -1,3 +1,4 @@
+"use client";
 import { UserIcon } from "@/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,13 +12,13 @@ export default function UserAvator({
 }) {
   return (
     <Link className="avatar btn btn-circle" href={`/profile/${id}`}>
-      <div className="w-12 rounded-full">
-        {profile ? (
+      {profile ? (
+        <div className="w-12 rounded-full">
           <Image src={profile} width={64} height={64} alt="profile image" />
-        ) : (
-          <UserIcon />
-        )}
-      </div>
+        </div>
+      ) : (
+        <UserIcon />
+      )}
     </Link>
   );
 }

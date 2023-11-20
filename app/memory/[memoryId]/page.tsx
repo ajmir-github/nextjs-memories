@@ -1,6 +1,8 @@
-import MemoryFilter from "@/features/MemoryFilter";
-import MemoriesList from "@/features/MemoryList";
-import { Memory } from "@prisma/client";
+import DoubleMainLayout from "@/components/DoubleMainLayout";
+import MemoryCard from "@/features/MemoryList/MemoryCard";
+import MemoryView from "@/features/MemoryView";
+import UserProfile from "@/features/UserProfile";
+import { Memory, User } from "@prisma/client";
 
 const memories: Memory[] = [
   {
@@ -75,11 +77,36 @@ const memories: Memory[] = [
   },
 ];
 
-export default function Home() {
+const user: User = {
+  id: "2313",
+  createdAt: new Date(),
+  email: "user@gmail.com",
+  isAdmin: false,
+  name: "Alexandra Haje",
+  password: "password",
+  updatedAt: new Date(),
+  views: 2,
+  profile: "/images/profile.jpg",
+  bio: "asdasd",
+};
+export default function SingleMemoryPage({
+  params: { memoryId },
+}: {
+  params: { memoryId: string };
+}) {
+  const memory = memories.find((memory) => memory.id === memoryId);
+  if (!memory) return <h1>Not found!</h1>;
   return (
-    <div className="grid gap-2">
-      <MemoryFilter />
-      <MemoriesList memories={memories} />
-    </div>
+    <DoubleMainLayout side={<UserProfile user={user} editable={false} />}>
+      <div className=" xl:col-span-2 flex flex-col gap-2 md:gap-4">
+        <MemoryView memory={memory} />
+        {/* related memories */}
+        <div className=" gap-2 md:gap-4 grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          {memories.map((memory) => (
+            <MemoryCard memory={memory} />
+          ))}
+        </div>
+      </div>
+    </DoubleMainLayout>
   );
 }
