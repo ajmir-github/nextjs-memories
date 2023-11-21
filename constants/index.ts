@@ -1,1 +1,2 @@
-export const WebsiteURL = "https://mystories.com";
+export const WebsiteURL = "http://localhost:3000";
+export const TokenCookieKey = "authorization";

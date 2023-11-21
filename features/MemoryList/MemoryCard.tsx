@@ -17,7 +17,7 @@ export default function MemoryCard({ memory }: { memory: Memory }) {
           <Image
             className="w-full aspect-video group-hover:scale-105 transition duration-500  z-0"
             src={memory.caption}
-            alt="Shoes"
+            alt={memory.title}
             width={800}
             height={600}
           />
