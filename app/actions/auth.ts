@@ -4,9 +4,8 @@ import database from "@/prisma";
 import { hashString, matchHash, signToken, verifyToken } from "@/utils/auth";
 import { z } from "zod";
 import { TokenCookieKey } from "@/constants";
-import FormState from "@/interfaces/FormState";
+import FormState from "@/interfaces";
 import { User } from "@prisma/client";
-import cache from "@/cache";
 
 const signUpValidator = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters!" }),
@@ -130,9 +129,6 @@ export async function getInitialAuth(): Promise<User | null> {
   // verify the token
   const token = cookies().get(TokenCookieKey)?.value as string;
   try {
-    // check cache
-    const cachedUser = cache.get(token);
-    if (cachedUser) return cachedUser;
     // fetch and cache the user
     const userId = verifyToken(token);
     const user = await database.user.findFirst({
@@ -140,8 +136,6 @@ export async function getInitialAuth(): Promise<User | null> {
         id: userId,
       },
     });
-    if (!user) return null;
-    cache.set(token, user);
     return user;
   } catch (error) {
     return null;

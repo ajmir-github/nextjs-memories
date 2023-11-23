@@ -1,9 +1,9 @@
 import DoubleMainLayout from "@/components/DoubleMainLayout";
-import MemoryFilter from "@/features/MemoryFilter";
+import MemoryFilter from "@/features/MemoryListFilter";
 import MemoriesList from "@/features/MemoryList";
-import MemoryCard from "@/features/MemoryList/MemoryCard";
 import UserProfile from "@/features/UserProfile";
 import { Memory, User } from "@prisma/client";
+import UserProfileSlef from "@/features/UserProfileSelf";
 
 const memories: Memory[] = [
   {
@@ -78,7 +78,7 @@ const memories: Memory[] = [
   },
 ];
 
-export default function ProfilePage() {
+export default function ProfileSelfPage() {
   const user: User = {
     id: "2313",
     createdAt: new Date(),
@@ -92,14 +92,10 @@ export default function ProfilePage() {
     bio: "asdasd",
   };
   return (
-    <DoubleMainLayout side={<UserProfile user={user} editable={true} />}>
+    <DoubleMainLayout side={<UserProfileSlef user={user} />}>
       <div className=" gap-2 md:gap-4 flex flex-col">
         <MemoryFilter />
-        <div className=" xl:col-span-2 gap-2 md:gap-4 grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          {memories.map((memory) => (
-            <MemoryCard memory={memory} />
-          ))}
-        </div>
+        <MemoriesList memories={memories} />
       </div>
     </DoubleMainLayout>
   );

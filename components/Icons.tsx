@@ -13,11 +13,12 @@ import {
   FaWhatsapp,
   FaTelegram,
   FaLinkedin,
+  FaSave,
 } from "react-icons/fa";
 import { CiLogin } from "react-icons/ci";
 import { TbCalendarEvent } from "react-icons/tb";
 import { FaLocationDot } from "react-icons/fa6";
-import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
+import { MdClose, MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 import { BiSortDown, BiSortUp } from "react-icons/bi";
 import { FiSend } from "react-icons/fi";
 import { LuUpload } from "react-icons/lu";
@@ -61,3 +62,5 @@ export const TelegramIcon = iconWrapper(FaTelegram);
 export const UploadIcon = iconWrapper(LuUpload);
 export const LinkIcon = iconWrapper(FaLink);
 export const LinkedinIcon = iconWrapper(FaLinkedin);
+export const SaveIcon = iconWrapper(FaSave);
+export const CloseIcon = iconWrapper(MdClose);

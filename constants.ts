@@ -1,4 +1,7 @@
-const themes: string[] = [
+export const WebsiteURL = "http://localhost:3000";
+export const TokenCookieKey = "authorization";
+
+export const themes: string[] = [
   "light",
   "dark",
   "cupcake",
@@ -32,5 +35,3 @@ const themes: string[] = [
   "nord",
   "sunset",
 ];
-
-export default themes;
